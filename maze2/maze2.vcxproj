@@ -149,7 +149,7 @@
     <ClCompile Include="stack_maze.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\stack_Miro\stack_Miro\miro_road.txt" />
+    <Text Include="miro_road.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

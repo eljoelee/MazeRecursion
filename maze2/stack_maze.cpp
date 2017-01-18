@@ -8,8 +8,8 @@ typedef struct Position {
 	int y;
 }Position;
 
-char maze[11][15];
-char path[11][15];
+char maze[11][15]; //미로
+char path[11][15]; //경로
 
 void PathOfMaze(Position position) {
 	
@@ -35,6 +35,8 @@ void PathOfMaze(Position position) {
 		exit(1);
 	}
 
+	//maze : 벽
+	//path : 발자취
 	if (maze[position.x][position.y + 1] != '1' && path[position.x][position.y + 1] == '0') {
 		tmp.x = position.x;
 		tmp.y = position.y + 1;
@@ -65,8 +67,8 @@ void PathOfMaze(Position position) {
 		tmp.y = position.y - 1;
 		PathOfMaze(tmp);
 	}
-	if (maze[position.x + 1][position.y - 1] != '1' && path[position.x + 1][position.y - 1] == '0') {
-		tmp.x = position.x + 1;
+	if (maze[position.x - 1][position.y - 1] != '1' && path[position.x - 1][position.y - 1] == '0') {
+		tmp.x = position.x - 1;
 		tmp.y = position.y - 1;
 		PathOfMaze(tmp);
 	}
@@ -79,6 +81,8 @@ void PathOfMaze(Position position) {
 	//끝난 부분 탐색은 더이상 참조할 필요가 없기 때문에 0으로 돌려놓는다.
 	path[position.x][position.y] = '0';
 }
+
+///////
 int main() {
 	ifstream file;
 
